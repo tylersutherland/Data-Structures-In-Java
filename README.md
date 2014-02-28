@@ -4,5 +4,5 @@ Has some tests but I'm still getting used to testing in this way so they may no 
 The tests are also unfinished.
 
 #Currently has:
-* Singly linked LinkedList(Near completion^TM)
+* Singly linked LinkedList(Near completion*)
 * ArrayList (Very early state)
