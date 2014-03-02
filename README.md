@@ -5,7 +5,7 @@ The tests are also unfinished.
 
 ###Currently has:
 * Singly linked LinkedList(Done*)
-* ArrayList (Very early state)
+* ArrayList (Done*)
 
 ###Need to have:
 * Hashtable
