@@ -2,8 +2,11 @@ package tstructs;
 
 public class DoublyLinkedList<T> extends List<T> {
 
-	public DoublyLinkedList() {
-		// TODO Auto-generated constructor stub
+	public DoublyLinkedList() {}
+
+	public DoublyLinkedList(T[] ts) {
+		this();
+		this.addAll(ts);
 	}
 
 	@Override

@@ -1,9 +1,5 @@
 package tstructs;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,51 +13,26 @@ public class ArrayListTest extends ListTest {
 
 	@Test
 	public void testAdd() {
-		ArrayList<Integer> c = new ArrayList<Integer>(new Integer[] { 1, 2, 3,
-				4 });
-
-		c.add(5);
-
-		assertThat(c, is(a));
+		c = new ArrayList<Integer>(new Integer[] { 1, 2, 3, 4 });
+		super.testAdd();
 	}
 
 	@Test
 	public void testSet() {
-		ArrayList<Integer> c = new ArrayList<Integer>(new Integer[] { 2, 2, 4,
-				4, 6 });
-
-		c.set(0, 1);
-		c.set(2, 3);
-		c.set(4, 5);
-
-		assertThat(c, is(a));
+		c = new ArrayList<Integer>(new Integer[] { 2, 2, 4, 4, 6 });
+		super.testSet();
 	}
 
 	@Test
 	public void testRemoveInt() {
 		c = new ArrayList<Integer>(new Integer[] { 2, 4 });
-
-		a.remove(2);
-		a.remove(3);
-		a.remove(0);
-
-		assertThat(a, is(c));
+		super.testRemoveInt();
 	}
 
 	@Test
 	public void testRemoveT() {
 		c = new ArrayList<Integer>(new Integer[] { 2, 4 });
-
-		a.remove(new Integer(3));
-		a.remove(new Integer(5));
-		a.remove(new Integer(1));
-
-		assertThat(a, is(c));
-	}
-
-	@Test
-	public void testContains() {
-		assertTrue(a.contains(1) && a.contains(3) && a.contains(5));
+		super.testRemoveT();
 	}
 
 	@Test
@@ -73,37 +44,19 @@ public class ArrayListTest extends ListTest {
 	@Test
 	public void testIsEmpty() {
 		c = new ArrayList<Integer>();
-
 		super.testIsEmpty();
 	}
 
 	@Test
-	public void testGet() {
-		assertThat(a.get(0), is(1));
-		assertThat(a.get(2), is(3));
-		assertThat(a.get(4), is(5));
-	}
-
-	@Test
-	public void testIndexOf() {
-		assertThat(a.indexOf(1), is(0));
-		assertThat(a.indexOf(3), is(2));
-		assertThat(a.indexOf(5), is(4));
-	}
-
-	@Test
 	public void testLastIndexOf() {
-		List<Integer> c = new ArrayList<Integer>(new Integer[] { 1, 2, 3, 4, 5,
-				1, 2, 3, 4, 5 });
-
-		assertThat(c.lastIndexOf(1), is(5));
-		assertThat(c.lastIndexOf(3), is(7));
-		assertThat(c.lastIndexOf(5), is(9));
+		c = new ArrayList<Integer>(
+				new Integer[] { 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 });
+		super.testLastIndexOf();
 	}
 
 	@Test
 	public void testAddAll() {
-		b = new ArrayList<Integer>();
+		c = new ArrayList<Integer>();
 		super.testAddAll();
 	}
 

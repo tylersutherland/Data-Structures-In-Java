@@ -1,7 +1,5 @@
 package tstructs;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,77 +7,57 @@ public class DoublyLinkedListTest extends ListTest {
 
 	@Before
 	public void setUp() {
-
+		a = new DoublyLinkedList<Integer>(new Integer[] { 1, 2, 3, 4, 5 });
+		b = new DoublyLinkedList<Integer>(new Integer[] { 1, 2, 3, 4, 5 });
 	}
 
 	@Test
 	public void testAdd() {
-		fail("Not yet implemented");
+		c = new DoublyLinkedList<Integer>(new Integer[] { 1, 2, 3, 4 });
+		super.testAdd();
 	}
 
 	@Test
 	public void testSet() {
-		fail("Not yet implemented");
+		c = new DoublyLinkedList<Integer>(new Integer[] { 2, 2, 4, 4, 6 });
+		super.testSet();
 	}
 
 	@Test
 	public void testRemoveInt() {
-		fail("Not yet implemented");
+		c = new DoublyLinkedList<Integer>(new Integer[] { 2, 4 });
+		super.testRemoveInt();
 	}
 
 	@Test
 	public void testRemoveT() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGet() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testIndexOf() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testLastIndexOf() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToArray() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testContains() {
-		fail("Not yet implemented");
+		c = new DoublyLinkedList<Integer>(new Integer[] { 2, 4 });
+		super.testRemoveT();
 	}
 
 	@Test
 	public void testEqualsObject() {
-		fail("Not yet implemented");
+		c = new DoublyLinkedList<Integer>(new Integer[] { 1, 2, 3, 4, 5 });
+		super.testEqualsObject();
+
 	}
 
 	@Test
 	public void testIsEmpty() {
-		fail("Not yet implemented");
+		c = new DoublyLinkedList<Integer>();
+		super.testIsEmpty();
 	}
 
 	@Test
-	public void testSize() {
-		fail("Not yet implemented");
+	public void testLastIndexOf() {
+		c = new DoublyLinkedList<Integer>(new Integer[] { 1, 2, 3, 4, 5, 1, 2,
+				3, 4, 5 });
+		super.testLastIndexOf();
 	}
 
 	@Test
 	public void testAddAll() {
-		fail("Not yet implemented");
+		c = new DoublyLinkedList<Integer>();
+		super.testAddAll();
 	}
-
 }

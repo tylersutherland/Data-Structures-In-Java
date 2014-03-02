@@ -49,9 +49,9 @@ public abstract class ListTest {
 	@Test
 	public void testAddAll() {
 		for (int i = 0; i < 5; i++)
-			b.add(i + 1);
+			c.add(i + 1);
 
-		assertThat(a, is(b));
+		assertThat(c, is(a));
 	}
 
 	@Test
@@ -65,20 +65,56 @@ public abstract class ListTest {
 	}
 
 	@Test
-	public abstract void testAdd();
+	public void testAdd() {
+		c.add(5);
+
+		assertThat(c, is(a));
+	}
 
 	@Test
-	public abstract void testSet();
+	public void testSet() {
+		c.set(0, 1);
+		c.set(2, 3);
+		c.set(4, 5);
+
+		assertThat(c, is(a));
+	}
 
 	@Test
-	public abstract void testRemoveInt();
+	public void testRemoveInt() {
+		a.remove(2);
+		a.remove(3);
+		a.remove(0);
+
+		assertThat(a, is(c));
+	}
+
+	public void testRemoveT() {
+		a.remove(new Integer(3));
+		a.remove(new Integer(5));
+		a.remove(new Integer(1));
+
+		assertThat(a, is(c));
+	}
 
 	@Test
-	public abstract void testGet();
+	public void testGet() {
+		assertThat(a.get(0), is(1));
+		assertThat(a.get(2), is(3));
+		assertThat(a.get(4), is(5));
+	}
 
 	@Test
-	public abstract void testIndexOf();
+	public void testIndexOf() {
+		assertThat(a.indexOf(1), is(0));
+		assertThat(a.indexOf(3), is(2));
+		assertThat(a.indexOf(5), is(4));
+	}
 
 	@Test
-	public abstract void testLastIndexOf();
+	public void testLastIndexOf() {
+		assertThat(c.lastIndexOf(1), is(5));
+		assertThat(c.lastIndexOf(3), is(7));
+		assertThat(c.lastIndexOf(5), is(9));
+	}
 }
