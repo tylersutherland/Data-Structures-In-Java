@@ -6,18 +6,6 @@ public abstract class LinkedList<T> extends List<T> {
 	protected Node	tail;
 
 	@Override
-	public void add(T value) {
-		Node nodeToAdd = new Node(value, null);
-		if (this.head == null) {
-			this.head = nodeToAdd;
-		} else {
-			this.tail.next = nodeToAdd;
-		}
-		this.tail = nodeToAdd;
-		this.size++;
-	}
-
-	@Override
 	public T set(int index, T value) {
 		this.isIndexValid(index);
 		Node curr = this.head;
@@ -143,5 +131,35 @@ public abstract class LinkedList<T> extends List<T> {
 			this.val = val;
 			this.next = next;
 		}
+	}
+
+	class Itr implements Iterator<T> {
+		Node	lastNode	= null;
+		Node	next;
+
+		Itr() {
+			this.next = LinkedList.this.head;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return this.next != null;
+		}
+
+		@Override
+		public T next() {
+			// TODO: JDK implementation checks for co-modifiction, see what that
+			// is.
+			T val = this.next.val;
+			this.next = this.next.next;
+			return val;
+		}
+
+		@Override
+		public T remove() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
 	}
 }

@@ -1,5 +1,7 @@
 package tstructs;
 
+import tstructs.LinkedList.Node;
+
 public class SinglyLinkedList<T> extends LinkedList<T> {
 	public SinglyLinkedList(T[] ts) {
 		this();
@@ -7,6 +9,18 @@ public class SinglyLinkedList<T> extends LinkedList<T> {
 	}
 
 	public SinglyLinkedList() {}
+
+	@Override
+	public void add(T value) {
+		Node nodeToAdd = new Node(value, null);
+		if (this.head == null) {
+			this.head = nodeToAdd;
+		} else {
+			this.tail.next = nodeToAdd;
+		}
+		this.tail = nodeToAdd;
+		this.size++;
+	}
 
 	@Override
 	public int lastIndexOf(T value) {
@@ -30,36 +44,6 @@ public class SinglyLinkedList<T> extends LinkedList<T> {
 	@Override
 	public Iterator<T> iterator() {
 		return new Itr();
-	}
-
-	class Itr implements Iterator<T> {
-		Node	lastNode	= null;
-		Node	next;
-
-		Itr() {
-			this.next = SinglyLinkedList.this.head;
-		}
-
-		@Override
-		public boolean hasNext() {
-			return this.next != null;
-		}
-
-		@Override
-		public T next() {
-			// TODO: JDK implementation checks for co-modifiction, see what that
-			// is.
-			T val = this.next.val;
-			this.next = this.next.next;
-			return val;
-		}
-
-		@Override
-		public T remove() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
 	}
 
 }
