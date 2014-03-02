@@ -1,5 +1,6 @@
 package tstructs;
 
+
 public class SinglyLinkedList<T> extends List<T> {
 	private Node	head;
 	private Node	tail;
@@ -157,6 +158,16 @@ public class SinglyLinkedList<T> extends List<T> {
 	@Override
 	public Iterator<T> iterator() {
 		return new Itr();
+	}
+
+	class Node {
+		T		val;
+		Node	next;
+
+		Node(T val, Node next) {
+			this.val = val;
+			this.next = next;
+		}
 	}
 
 	class Itr implements Iterator<T> {

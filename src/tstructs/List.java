@@ -1,17 +1,6 @@
 package tstructs;
 
-import tstructs.SinglyLinkedList.Itr;
-
 public abstract class List<T> {
-	class Node {
-		T		val;
-		Node	next;
-
-		Node(T val, Node next) {
-			this.val = val;
-			this.next = next;
-		}
-	}
 
 	protected int	size;
 
