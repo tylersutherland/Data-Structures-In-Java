@@ -4,8 +4,6 @@ public abstract class List<T> {
 
 	protected int	size;
 
-
-
 	/**
 	 * Adds the value to the end of the list.
 	 * 
