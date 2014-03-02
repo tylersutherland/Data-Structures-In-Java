@@ -19,13 +19,6 @@ public class SinglyLinkedListTest {
 	}
 
 	@Test
-	public void testGet() {
-		assertThat(a.get(0), is(1));
-		assertThat(a.get(2), is(3));
-		assertThat(a.get(4), is(5));
-	}
-
-	@Test
 	public void testAdd() {
 		SinglyLinkedList<Integer> a = new SinglyLinkedList<Integer>(
 				new Integer[] { 1, 2, 3, 4 });
@@ -100,6 +93,13 @@ public class SinglyLinkedListTest {
 
 		assertThat(a.size(), is(0));
 		assertThat(b.size(), is(0));
+	}
+
+	@Test
+	public void testGet() {
+		assertThat(a.get(0), is(1));
+		assertThat(a.get(2), is(3));
+		assertThat(a.get(4), is(5));
 	}
 
 	@Test

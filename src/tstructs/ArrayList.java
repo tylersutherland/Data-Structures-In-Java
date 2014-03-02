@@ -14,6 +14,11 @@ public class ArrayList<T> extends List<T> {
 		size = 0;
 	}
 
+	public ArrayList(T[] ts) {
+		this();
+		this.addAll(ts);
+	}
+
 	@Override
 	public void add(T value) {
 		canArrayHold(size + 1);
