@@ -2,15 +2,11 @@ package tstructs;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class SinglyLinkedListTest {
-
-	SinglyLinkedList<Integer>	a;
-	SinglyLinkedList<Integer>	b;
+public class SinglyLinkedListTest extends ListTest {
 
 	@Before
 	public void setUp() {
@@ -20,8 +16,7 @@ public class SinglyLinkedListTest {
 
 	@Test
 	public void testAdd() {
-		SinglyLinkedList<Integer> a = new SinglyLinkedList<Integer>(
-				new Integer[] { 1, 2, 3, 4 });
+		a = new SinglyLinkedList<Integer>(new Integer[] { 1, 2, 3, 4 });
 
 		a.add(5);
 
@@ -30,8 +25,7 @@ public class SinglyLinkedListTest {
 
 	@Test
 	public void testSet() {
-		SinglyLinkedList<Integer> a = new SinglyLinkedList<Integer>(
-				new Integer[] { 2, 2, 4, 4, 6 });
+		a = new SinglyLinkedList<Integer>(new Integer[] { 2, 2, 4, 4, 6 });
 
 		a.set(0, 1);
 		a.set(2, 3);
@@ -42,8 +36,7 @@ public class SinglyLinkedListTest {
 
 	@Test
 	public void testRemoveInt() {
-		SinglyLinkedList<Integer> b = new SinglyLinkedList<Integer>(
-				new Integer[] { 2, 4 });
+		b = new SinglyLinkedList<Integer>(new Integer[] { 2, 4 });
 
 		a.remove(2);
 		a.remove(3);
@@ -54,8 +47,7 @@ public class SinglyLinkedListTest {
 
 	@Test
 	public void testRemoveT() {
-		SinglyLinkedList<Integer> b = new SinglyLinkedList<Integer>(
-				new Integer[] { 2, 4 });
+		b = new SinglyLinkedList<Integer>(new Integer[] { 2, 4 });
 
 		a.remove(new Integer(3));
 		a.remove(new Integer(5));
@@ -65,34 +57,16 @@ public class SinglyLinkedListTest {
 	}
 
 	@Test
-	public void testContains() {
-		assertTrue(a.contains(1) && a.contains(3) && a.contains(5));
-	}
+	public void testEqualsObject() {
+		c = new SinglyLinkedList<Integer>(new Integer[] { 1, 2, 3, 4, 5 });
+		super.testEqualsObject();
 
-	@Test
-	public void testEquals() {
-		SinglyLinkedList<Integer> c = new SinglyLinkedList<Integer>(
-				new Integer[] { 1, 2, 3, 4, 5 });
-
-		assertThat(a, is(b));
-		assertThat(b, is(c));
-		assertThat(a, is(c));
-
-		assertThat(a, is(b));
-		assertThat(b, is(a));
-
-		assertThat(a, is(a));
 	}
 
 	@Test
 	public void testIsEmpty() {
-		List<Integer> a = new SinglyLinkedList<Integer>();
-
-		for (int i = 0; i < 5; i++)
-			b.remove(0);
-
-		assertThat(a.size(), is(0));
-		assertThat(b.size(), is(0));
+		c = new SinglyLinkedList<Integer>();
+		super.testIsEmpty();
 	}
 
 	@Test
@@ -111,8 +85,8 @@ public class SinglyLinkedListTest {
 
 	@Test
 	public void testLastIndexOf() {
-		List<Integer> a = new SinglyLinkedList<Integer>(
-				new Integer[] { 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 });
+		a = new SinglyLinkedList<Integer>(new Integer[] { 1, 2, 3, 4, 5, 1, 2,
+				3, 4, 5 });
 
 		assertThat(a.lastIndexOf(1), is(5));
 		assertThat(a.lastIndexOf(3), is(7));
@@ -120,27 +94,8 @@ public class SinglyLinkedListTest {
 	}
 
 	@Test
-	public void testSize() {
-		assertThat(a.size(), is(5));
-	}
-
-	@Test
-	public void testToString() {
-		assertThat(a.toString(), is("[ 1, 2, 3, 4, 5 ]"));
-	}
-
-	@Test
-	public void testToArray() {
-		assertThat(a.toArray(), is(new Object[] { 1, 2, 3, 4, 5 }));
-	}
-
-	@Test
 	public void testAddAll() {
-		SinglyLinkedList<Integer> b = new SinglyLinkedList<Integer>();
-
-		for (int i = 0; i < 5; i++)
-			b.add(i + 1);
-
-		assertThat(a, is(b));
+		b = new SinglyLinkedList<Integer>();
+		super.testAddAll();
 	}
 }

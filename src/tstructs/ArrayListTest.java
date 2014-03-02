@@ -7,10 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ArrayListTest {
-
-	ArrayList<Integer>	a;
-	ArrayList<Integer>	b;
+public class ArrayListTest extends ListTest {
 
 	@Before
 	public void setUp() {
@@ -29,7 +26,7 @@ public class ArrayListTest {
 	}
 
 	@Test
-	public void testSet() throws Exception {
+	public void testSet() {
 		ArrayList<Integer> c = new ArrayList<Integer>(new Integer[] { 2, 2, 4,
 				4, 6 });
 
@@ -42,7 +39,7 @@ public class ArrayListTest {
 
 	@Test
 	public void testRemoveInt() {
-		ArrayList<Integer> c = new ArrayList<Integer>(new Integer[] { 2, 4 });
+		c = new ArrayList<Integer>(new Integer[] { 2, 4 });
 
 		a.remove(2);
 		a.remove(3);
@@ -53,7 +50,7 @@ public class ArrayListTest {
 
 	@Test
 	public void testRemoveT() {
-		ArrayList<Integer> c = new ArrayList<Integer>(new Integer[] { 2, 4 });
+		c = new ArrayList<Integer>(new Integer[] { 2, 4 });
 
 		a.remove(new Integer(3));
 		a.remove(new Integer(5));
@@ -68,29 +65,16 @@ public class ArrayListTest {
 	}
 
 	@Test
-	public void testEquals() {
-		ArrayList<Integer> c = new ArrayList<Integer>(new Integer[] { 1, 2, 3,
-				4, 5 });
-
-		assertThat(a, is(b));
-		assertThat(b, is(c));
-		assertThat(a, is(c));
-
-		assertThat(a, is(b));
-		assertThat(b, is(a));
-
-		assertThat(a, is(a));
+	public void testEqualsObject() {
+		c = new ArrayList<Integer>(new Integer[] { 1, 2, 3, 4, 5 });
+		super.testEqualsObject();
 	}
 
 	@Test
 	public void testIsEmpty() {
-		List<Integer> c = new ArrayList<Integer>();
+		c = new ArrayList<Integer>();
 
-		for (int i = 0; i < 5; i++)
-			b.remove(0);
-
-		assertThat(c.size(), is(0));
-		assertThat(b.size(), is(0));
+		super.testIsEmpty();
 	}
 
 	@Test
@@ -118,28 +102,9 @@ public class ArrayListTest {
 	}
 
 	@Test
-	public void testSize() {
-		assertThat(a.size(), is(5));
-	}
-
-	@Test
-	public void testToString() {
-		assertThat(a.toString(), is("[ 1, 2, 3, 4, 5 ]"));
-	}
-
-	@Test
-	public void testToArray() {
-		assertThat(a.toArray(), is(new Object[] { 1, 2, 3, 4, 5 }));
-	}
-
-	@Test
 	public void testAddAll() {
-		ArrayList<Integer> b = new ArrayList<Integer>();
-
-		for (int i = 0; i < 5; i++)
-			b.add(i + 1);
-
-		assertThat(a, is(b));
+		b = new ArrayList<Integer>();
+		super.testAddAll();
 	}
 
 }
