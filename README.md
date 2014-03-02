@@ -4,9 +4,9 @@ Has some tests but I'm still getting used to testing in this way so they may no 
 The tests are also unfinished.
 
 ###Currently has:
-* Singly linked LinkedList(Done*)
+* Singly linked LinkedList (Done*)
 * ArrayList (Done*) 
-* Doubly linked LinkedList
+* Doubly linked LinkedList (Done*)
 
 ###Need to have:
 * Hashtable
