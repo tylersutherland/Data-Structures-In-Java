@@ -43,8 +43,10 @@ public class SinglyLinkedList<T> extends List<T> {
 			n = n.next;
 		}
 		T removed = n.val;
-		if (prev == null) n = null;
-		else prev.next = n.next;
+		if (prev == null) {
+			head = n.next;
+			n = null;
+		} else prev.next = n.next;
 		this.size--;
 		return removed;
 	}
@@ -65,6 +67,7 @@ public class SinglyLinkedList<T> extends List<T> {
 					this.size--;
 					return true;
 				}
+				prev = curr;
 			}
 		} else {
 			for (Node curr = head; curr != null; curr = curr.next) {
@@ -79,6 +82,7 @@ public class SinglyLinkedList<T> extends List<T> {
 					this.size--;
 					return true;
 				}
+				prev = curr;
 			}
 		}
 		return false;
@@ -86,8 +90,7 @@ public class SinglyLinkedList<T> extends List<T> {
 
 	@Override
 	public boolean contains(T value) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.indexOf(value) != -1;
 	}
 
 	@Override
@@ -115,20 +118,49 @@ public class SinglyLinkedList<T> extends List<T> {
 
 	@Override
 	public T get(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		if (index < 0 || index >= this.size)
+			throw new IndexOutOfBoundsException();
+		Node n = this.head;
+		for (int i = 0; i < index; i++) {
+			n = n.next;
+		}
+		return n.val;
 	}
 
 	@Override
 	public int indexOf(T value) {
-		// TODO Auto-generated method stub
-		return 0;
+		int index = 0;
+		if (value == null) {
+			for (Node n = head; n != null; n = n.next) {
+				if (n.val == value) return index;
+				index++;
+			}
+		} else {
+			for (Node n = head; n != null; n = n.next) {
+				if (n.val.equals(value)) return index;
+				index++;
+			}
+		}
+		return -1;
 	}
 
 	@Override
 	public int lastIndexOf(T value) {
-		// TODO Auto-generated method stub
-		return 0;
+		int lastIndex = -1;
+		int currentIndex = 0;
+		if (value == null) {
+			for (Node n = head; n != null; n = n.next) {
+				if (n.val == value) lastIndex = currentIndex;
+				currentIndex++;
+			}
+		} else {
+			for (Node n = head; n != null; n = n.next) {
+				if (n.val.equals(value)) lastIndex = currentIndex;
+				currentIndex++;
+			}
+		}
+		return lastIndex;
+
 	}
 
 	@Override
