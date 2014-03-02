@@ -35,7 +35,7 @@ public class ArrayListTest {
 
 		c.set(0, 1);
 		c.set(2, 3);
-		c.set(4, 3);
+		c.set(4, 5);
 
 		assertThat(c, is(a));
 	}

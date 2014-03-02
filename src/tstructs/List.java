@@ -97,7 +97,7 @@ public abstract class List<T> {
 	@Override
 	public boolean equals(Object other) {
 		if (other == this) return true;
-		if (!(other instanceof SinglyLinkedList)) return false;
+		if (!(other instanceof List)) return false;
 		Iterator<T> iterator = this.iterator();
 		@SuppressWarnings("unchecked") Iterator<?> otherIterator = ((List<T>) other)
 				.iterator();
