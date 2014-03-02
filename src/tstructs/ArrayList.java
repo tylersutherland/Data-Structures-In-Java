@@ -2,14 +2,21 @@ package tstructs;
 
 public class ArrayList<T> extends List<T> {
 
-	private Object[]	array;
+	private Object[]			array;
+	private int					currentCapacity;
+
+	/** In addition to being the default this is also the minimum **/
+	private final static int	INITIAL_CAPACITY	= 10;
 
 	public ArrayList() {
-		this(10);
+		this(INITIAL_CAPACITY);
 	}
 
 	public ArrayList(int initialCapacity) {
+		initialCapacity = initialCapacity < INITIAL_CAPACITY ? INITIAL_CAPACITY
+				: initialCapacity;
 		this.array = new Object[initialCapacity];
+		this.currentCapacity = initialCapacity;
 		this.size = 0;
 	}
 
@@ -25,9 +32,15 @@ public class ArrayList<T> extends List<T> {
 		this.size++;
 	}
 
-	private void growArrayTo(int size) {
-		// TODO Auto-generated method stub
-
+	private void growArrayTo(int newSize) {
+		if (newSize > currentCapacity) {
+			Object[] newArray = new Object[currentCapacity * 2];
+			for (int i = 0; i < currentCapacity; i++) {
+				newArray[i] = this.array[i];
+			}
+			currentCapacity *= 2;
+			this.array = newArray;
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -50,8 +63,19 @@ public class ArrayList<T> extends List<T> {
 		return removedValue;
 	}
 
-	private void shrinkArrayTo(int size) {
-		// TODO Auto-generated method stub
+	private void shrinkArrayTo(int newSize) {
+		if (newSize < currentCapacity / 2) {
+			currentCapacity /= 2;
+			currentCapacity = currentCapacity < INITIAL_CAPACITY ? INITIAL_CAPACITY
+					: currentCapacity;
+			currentCapacity += currentCapacity % 2 != 0 ? 1 : 0;
+
+			Object[] newArray = new Object[currentCapacity];
+			for (int i = 0; i < currentCapacity; i++) {
+				newArray[i] = this.array[i];
+			}
+			this.array = newArray;
+		}
 
 	}
 
@@ -178,5 +202,9 @@ public class ArrayList<T> extends List<T> {
 			return null;
 		}
 
+	}
+
+	public int currentCapacity() {
+		return currentCapacity;
 	}
 }

@@ -99,8 +99,7 @@ public abstract class List<T> {
 		if (other == this) return true;
 		if (!(other instanceof List)) return false;
 		Iterator<T> iterator = this.iterator();
-		@SuppressWarnings("unchecked") Iterator<?> otherIterator = ((List<T>) other)
-				.iterator();
+		Iterator<?> otherIterator = ((List<?>) other).iterator();
 
 		while (iterator.hasNext() && otherIterator.hasNext()) {
 			T v1 = iterator.next();

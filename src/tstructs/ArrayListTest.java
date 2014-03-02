@@ -2,6 +2,8 @@ package tstructs;
 
 import org.junit.Before;
 import org.junit.Test;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class ArrayListTest extends ListTest {
 
@@ -58,6 +60,28 @@ public class ArrayListTest extends ListTest {
 	public void testAddAll() {
 		c = new ArrayList<Integer>();
 		super.testAddAll();
+	}
+
+	@Test
+	public void testGrowArrayTo() {
+		for (int i = 0; i < 100; i++) {
+			a.add(i);
+		}
+		assertThat(a.size(), is(105));
+		assertThat(((ArrayList<Integer>) a).currentCapacity(), is(160));
+	}
+
+	@Test
+	public void testShrinkArrayTo() {
+		for (int i = 0; i < 100; i++) {
+			a.add(i);
+		}
+		for (int i = 0; i < 100; i++) {
+			a.remove(0);
+		}
+
+		assertThat(a.size(), is(5));
+		assertThat(((ArrayList<Integer>) a).currentCapacity(), is(10));
 	}
 
 }

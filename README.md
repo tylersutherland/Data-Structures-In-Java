@@ -5,7 +5,7 @@ The tests are also unfinished.
 
 ###Currently has:
 * Singly linked LinkedList(Done*)
-* ArrayList ~~(Done*)~~ 
+* ArrayList (Done*) 
 * Doubly linked LinkedList
 
 ###Need to have:
