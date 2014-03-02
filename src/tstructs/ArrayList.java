@@ -1,7 +1,5 @@
 package tstructs;
 
-import tstructs.SinglyLinkedList.Node;
-
 public class ArrayList<T> extends List<T> {
 
 	private Object[]	array;
@@ -113,11 +111,15 @@ public class ArrayList<T> extends List<T> {
 		int lastIndex = -1;
 		if (value == null) {
 			for (int i = 0; i < this.size; i++) {
-				if (this.array[i] == value) lastIndex = i;
+				if (this.array[i] == value) {
+					lastIndex = i;
+				}
 			}
 		} else {
 			for (int i = 0; i < this.size; i++) {
-				if (this.array[i].equals(value)) lastIndex = i;
+				if (this.array[i].equals(value)) {
+					lastIndex = i;
+				}
 			}
 		}
 		return lastIndex;
@@ -157,7 +159,7 @@ public class ArrayList<T> extends List<T> {
 
 		@Override
 		public boolean hasNext() {
-			return this.nextIndex < size;
+			return this.nextIndex < ArrayList.this.size;
 		}
 
 		@SuppressWarnings("unchecked")
@@ -165,8 +167,8 @@ public class ArrayList<T> extends List<T> {
 		public T next() {
 			// TODO: JDK implementation checks for co-modifiction, see what that
 			// is.
-			T val = (T) array[nextIndex];
-			nextIndex++;
+			T val = (T) ArrayList.this.array[this.nextIndex];
+			this.nextIndex++;
 			return val;
 		}
 
