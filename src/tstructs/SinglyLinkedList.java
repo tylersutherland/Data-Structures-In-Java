@@ -3,9 +3,9 @@ package tstructs;
 public class SinglyLinkedList<T> extends List<T> {
 	private Node	head;
 	private Node	tail;
-	private int		size;
 
 	public SinglyLinkedList(T[] ts) {
+		this();
 		this.addAll(ts);
 	}
 
@@ -22,8 +22,7 @@ public class SinglyLinkedList<T> extends List<T> {
 
 	@Override
 	public T set(int index, T value) {
-		if (index >= this.size || index < 0)
-			throw new IndexOutOfBoundsException();
+		isIndexValid(index);
 		Node curr = this.head;
 		for (int i = 0; i < index; i++)
 			curr = curr.next;
@@ -34,8 +33,7 @@ public class SinglyLinkedList<T> extends List<T> {
 
 	@Override
 	public T remove(int index) {
-		if (index < 0 || index >= this.size)
-			throw new IndexOutOfBoundsException();
+		isIndexValid(index);
 		Node n = this.head;
 		Node prev = null;
 		for (int i = 0; i < index; i++) {
@@ -89,37 +87,8 @@ public class SinglyLinkedList<T> extends List<T> {
 	}
 
 	@Override
-	public boolean contains(T value) {
-		return this.indexOf(value) != -1;
-	}
-
-	@Override
-	public boolean equals(Object other) {
-		if (other == this) return true;
-		if (!(other instanceof SinglyLinkedList)) return false;
-		Iterator<T> iterator = this.iterator();
-		Iterator<?> otherIterator = ((SinglyLinkedList<?>) other).iterator();
-
-		while (iterator.hasNext() && otherIterator.hasNext()) {
-			T v1 = iterator.next();
-			Object v2 = otherIterator.next();
-
-			if (!(v1 == null && v2 == null || v1.equals(v2))) return false;
-		}
-
-		return !(iterator.hasNext() || otherIterator.hasNext());
-
-	}
-
-	@Override
-	public boolean isEmpty() {
-		return this.size == 0;
-	}
-
-	@Override
 	public T get(int index) {
-		if (index < 0 || index >= this.size)
-			throw new IndexOutOfBoundsException();
+		isIndexValid(index);
 		Node n = this.head;
 		for (int i = 0; i < index; i++) {
 			n = n.next;
@@ -164,11 +133,6 @@ public class SinglyLinkedList<T> extends List<T> {
 	}
 
 	@Override
-	public int size() {
-		return this.size;
-	}
-
-	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder("[ ");
 		for (Node curr = head; curr != null; curr = curr.next) {
@@ -188,12 +152,6 @@ public class SinglyLinkedList<T> extends List<T> {
 			n = n.next;
 		}
 		return arr;
-	}
-
-	@Override
-	public void addAll(T[] ts) {
-		for (T t : ts)
-			this.add(t);
 	}
 
 	@Override
@@ -230,4 +188,5 @@ public class SinglyLinkedList<T> extends List<T> {
 		}
 
 	}
+
 }

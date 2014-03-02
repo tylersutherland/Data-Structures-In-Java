@@ -3,15 +3,14 @@ package tstructs;
 public class ArrayList<T> extends List<T> {
 
 	private Object[]	array;
-	private int			size;
 
 	public ArrayList() {
 		this(10);
 	}
 
 	public ArrayList(int initialCapacity) {
-		array = new Object[initialCapacity];
-		size = 0;
+		this.array = new Object[initialCapacity];
+		this.size = 0;
 	}
 
 	public ArrayList(T[] ts) {
@@ -21,9 +20,9 @@ public class ArrayList<T> extends List<T> {
 
 	@Override
 	public void add(T value) {
-		canArrayHold(size + 1);
-		array[size] = value;
-		size++;
+		this.canArrayHold(this.size + 1);
+		this.array[this.size] = value;
+		this.size++;
 	}
 
 	private void canArrayHold(int i) {
@@ -33,8 +32,10 @@ public class ArrayList<T> extends List<T> {
 
 	@Override
 	public T set(int index, T value) {
-		// TODO Auto-generated method stub
-		return null;
+		this.isIndexValid(index);
+		@SuppressWarnings("unchecked") T oldValue = (T) this.array[index];
+		this.array[index] = value;
+		return oldValue;
 	}
 
 	@Override
@@ -45,24 +46,6 @@ public class ArrayList<T> extends List<T> {
 
 	@Override
 	public boolean remove(T value) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean contains(T value) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean equals(Object other) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isEmpty() {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -86,12 +69,6 @@ public class ArrayList<T> extends List<T> {
 	}
 
 	@Override
-	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public Object[] toArray() {
 		// TODO Auto-generated method stub
 		return null;
@@ -101,12 +78,6 @@ public class ArrayList<T> extends List<T> {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void addAll(T[] ts) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

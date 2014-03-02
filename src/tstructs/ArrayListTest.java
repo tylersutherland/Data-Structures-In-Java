@@ -84,7 +84,7 @@ public class ArrayListTest {
 
 	@Test
 	public void testIsEmpty() {
-		ArrayList<Integer> c = new ArrayList<Integer>();
+		List<Integer> c = new ArrayList<Integer>();
 
 		for (int i = 0; i < 5; i++)
 			b.remove(0);
@@ -109,8 +109,8 @@ public class ArrayListTest {
 
 	@Test
 	public void testLastIndexOf() {
-		ArrayList<Integer> c = new ArrayList<Integer>(new Integer[] { 1, 2, 3,
-				4, 5, 1, 2, 3, 4, 5 });
+		List<Integer> c = new ArrayList<Integer>(new Integer[] { 1, 2, 3, 4, 5,
+				1, 2, 3, 4, 5 });
 
 		assertThat(c.lastIndexOf(1), is(5));
 		assertThat(c.lastIndexOf(3), is(7));

@@ -86,7 +86,7 @@ public class SinglyLinkedListTest {
 
 	@Test
 	public void testIsEmpty() {
-		SinglyLinkedList<Integer> a = new SinglyLinkedList<Integer>();
+		List<Integer> a = new SinglyLinkedList<Integer>();
 
 		for (int i = 0; i < 5; i++)
 			b.remove(0);
@@ -111,7 +111,7 @@ public class SinglyLinkedListTest {
 
 	@Test
 	public void testLastIndexOf() {
-		SinglyLinkedList<Integer> a = new SinglyLinkedList<Integer>(
+		List<Integer> a = new SinglyLinkedList<Integer>(
 				new Integer[] { 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 });
 
 		assertThat(a.lastIndexOf(1), is(5));
