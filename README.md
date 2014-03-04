@@ -11,11 +11,11 @@ The tests are also unfinished.
 
 ###Need to have:
 ####Data Structures:
-    * Hashtable
-    * Trees
-####Algorithms
-    * List Sorts
-	* Graph searches
-	* Tree searches
+    Hashtable
+    Trees
+####Algorithms:
+    List Sorts
+	Graph searches
+	Tree searches
 
 *Needs more testing probably
