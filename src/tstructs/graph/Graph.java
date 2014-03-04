@@ -10,7 +10,13 @@ public abstract class Graph<T> {
 
 	public abstract boolean addVertex(Vertex v);
 
-	public abstract boolean a();
+	public Set<Edge> edges() {
+		return edges;
+	}
+
+	public Set<Vertex> verts() {
+		return verts;
+	}
 
 	class Vertex {
 		T	val;
