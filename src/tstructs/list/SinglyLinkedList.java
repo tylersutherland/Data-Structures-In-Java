@@ -1,6 +1,4 @@
-package tstructs;
-
-import tstructs.LinkedList.Node;
+package tstructs.list;
 
 public class SinglyLinkedList<T> extends LinkedList<T> {
 	public SinglyLinkedList(T[] ts) {
@@ -27,13 +25,17 @@ public class SinglyLinkedList<T> extends LinkedList<T> {
 		int lastIndex = -1;
 		int currentIndex = 0;
 		if (value == null) {
-			for (Node n = head; n != null; n = n.next) {
-				if (n.val == value) lastIndex = currentIndex;
+			for (Node n = this.head; n != null; n = n.next) {
+				if (n.val == value) {
+					lastIndex = currentIndex;
+				}
 				currentIndex++;
 			}
 		} else {
-			for (Node n = head; n != null; n = n.next) {
-				if (n.val.equals(value)) lastIndex = currentIndex;
+			for (Node n = this.head; n != null; n = n.next) {
+				if (n.val.equals(value)) {
+					lastIndex = currentIndex;
+				}
 				currentIndex++;
 			}
 		}

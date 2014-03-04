@@ -1,4 +1,4 @@
-package tstructs;
+package tstructs.list;
 
 public abstract class List<T> {
 

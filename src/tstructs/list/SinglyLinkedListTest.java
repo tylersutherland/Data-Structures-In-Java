@@ -1,4 +1,4 @@
-package tstructs;
+package tstructs.list;
 
 import org.junit.Before;
 import org.junit.Test;

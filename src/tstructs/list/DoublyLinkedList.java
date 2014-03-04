@@ -1,6 +1,4 @@
-package tstructs;
-
-import tstructs.LinkedList.Node;
+package tstructs.list;
 
 public class DoublyLinkedList<T> extends LinkedList<T> {
 
@@ -55,7 +53,7 @@ public class DoublyLinkedList<T> extends LinkedList<T> {
 				this.tail = n.prev;
 				n = null;
 			} else {
-				((DoubleNode) (n.next)).prev = n.prev;
+				((DoubleNode) n.next).prev = n.prev;
 				n.prev.next = n.next;
 			}
 			this.size--;

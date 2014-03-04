@@ -1,4 +1,4 @@
-package tstructs;
+package tstructs.list;
 
 public class ArrayList<T> extends List<T> {
 
