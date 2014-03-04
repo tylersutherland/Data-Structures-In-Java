@@ -10,7 +10,12 @@ The tests are also unfinished.
 * Graphs
 
 ###Need to have:
-* Hashtable
-* Trees
+*####Data Structures:
+    * Hashtable
+    * Trees
+*####Algorithms
+    * List Sorts
+	* Graph searches
+	* Tree searches
 
 *Needs more testing probably
