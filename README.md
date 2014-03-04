@@ -7,11 +7,10 @@ The tests are also unfinished.
 * Singly linked LinkedList (Done*)
 * ArrayList (Done*) 
 * Doubly linked LinkedList (Done*)
+* Graphs
 
 ###Need to have:
 * Hashtable
 * Trees
-* Graphs
-
 
 *Needs more testing probably
